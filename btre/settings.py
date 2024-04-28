@@ -13,6 +13,8 @@ import os
 import certifi
 from pathlib import Path
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -148,6 +150,15 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
+
+
+
 '''
 #EMAIL CONFIG
 EMAIL_HOST = 'smtp.gmail.com'
