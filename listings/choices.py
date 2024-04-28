@@ -9,7 +9,7 @@ bedroom_choices = {
   '7':7,
   '8':8,
   '9':9,
-  '10':10
+  '10':10,
   }
 
 price_choices = {
@@ -82,5 +82,5 @@ state_choices = {
         'WA': 'Washington',
         'WI': 'Wisconsin',
         'WV': 'West Virginia',
-        'WY': 'Wyoming'
+        'WY': 'Wyoming',
 }
