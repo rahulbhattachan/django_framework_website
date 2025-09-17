@@ -9,8 +9,8 @@
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
-          <h1 class="display-4">Browse Our Properties</h1>
-          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
+          <h1 class="display-4">Explore Our Properties</h1>
+          <p class="lead">Discover your next home from our curated selection of quality properties in prime locations.</p>
         </div>
       </div>
     </div>
@@ -74,14 +74,18 @@
                       <i class="fas fa-clock"></i> {{ listing.list_date | timesince }}</div>
                   </div>
                   <hr>
-                  <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
+                  <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">View Details</a>
                 </div>
               </div>
             </div>
           {% endfor %}
         {% else %}
           <div class="col-md-12">
-            <p>No Listings Available</p>
+            <div class="text-center">
+              <h3>No Properties Currently Available</h3>
+              <p>We're constantly updating our listings. Please check back soon or contact us directly to discuss your specific needs.</p>
+              <a href="{% url 'index' %}" class="btn btn-primary">Return to Home</a>
+            </div>
           </div>
         {% endif %}
       </div>

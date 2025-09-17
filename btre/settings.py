@@ -9,9 +9,10 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-import os
+import os 
 import certifi
-from pathlib import Path
+from pathlib import Path # Add this import
+from decouple import config
 
 
 
@@ -23,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%k3z(ocni3t6zzhp(az&ve!tyr%*z369xxzx#7uxukbex4@p5m'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -86,10 +87,10 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'btredeb',
-        'USER': 'postgres',
-        'PASSWORD' : '123456',
-        'HOST': 'localhost'
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST', default='localhost')
     }
 }
 
@@ -159,18 +160,13 @@ except ImportError:
 
 
 
-'''
-#EMAIL CONFIG
+
+
+# EMAIL CONFIGURATION
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'rahulab590@gmail.com'
-EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
-EMAIL_TLS_CERTFILE = certifi.where()
-'''
-'''
-EMAIL_USE_SSL = True
-EMAIL_SSL_CERTFILE = certifi.where()
-EMAIL_SSL_CERTFILE = '/path/to/certificate.pem'
-EMAIL_SSL_KEYFILE = '/path/to/privatekey.pem'
-'''
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = config('EMAIL_HOST_USER')

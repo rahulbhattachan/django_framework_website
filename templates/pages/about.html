@@ -10,7 +10,7 @@
       <div class="row text-center">
         <div class="col-md-12">
           <h1 class="display-4">About BT Real Estate</h1>
-          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
+          <p class="lead">Your trusted partner in finding the perfect home and making smart real estate investments.</p>
         </div>
       </div>
     </div>
@@ -35,20 +35,20 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8">
-          <h2>We Search For The Perfect Home</h2>
-          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
+          <h2>We Help You Find The Perfect Home</h2>
+          <p class="lead">With over 15 years of experience in the real estate industry, BT Real Estate has helped thousands of families find their dream homes.</p>
           <img src="{% static 'img/about.jpg' %}" alt="">
-          <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis esse officia repudiandae ad saepe ex, amet
-            neque quod accusamus rem quia magnam magni dolorum facilis ullam minima perferendis? Exercitationem at quaerat
-            commodi id libero eveniet harum perferendis laborum molestias quia.</p>
+          <p class="mt-4">Founded on the principles of integrity, expertise, and customer service, we understand that buying or selling a home is one of life's most important decisions. Our team of dedicated professionals combines local market knowledge with cutting-edge technology to provide you with the best possible real estate experience.
+          
+          Whether you're a first-time homebuyer, looking to upgrade to your forever home, or seeking investment opportunities, we're here to guide you through every step of the process. Our comprehensive services include market analysis, property valuation, negotiation expertise, and post-sale support to ensure your complete satisfaction.</p>
         </div>
         <div class="col-md-4">
           {% if mvp_realtors %}
             {% for realtor in mvp_realtors %}
             <div class="card">
-                <img class="card-img-top" src="{{ realtor.photo.url }}" alt="Seller of the month">
+                <img class="card-img-top" src="{{ realtor.photo.url }}" alt="Top performing realtor">
                 <div class="card-body">
-                  <h5 class="card-title">Seller Of The Month</h5>
+                  <h5 class="card-title">Top Performing Agent</h5>
                   <h6 class="text-secondary">{{ realtor.name }}</h6>
                   <p class="card-text">{{ realtor.description }}
                   </p>
@@ -64,15 +64,15 @@
   <!-- Work -->
   <section id="work" class="bg-dark text-white text-center">
     <h2 class="display-4">We Work For You</h2>
-    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit aperiam, unde aliquid at similique!</h4>
+    <h4>Our success is measured by your satisfaction. We're committed to making your real estate dreams a reality.</h4>
     <hr>
-    <a href="{% url 'listings' %}" class="btn btn-secondary text-white btn-lg">View Our Featured Listings</a>
+    <a href="{% url 'listings' %}" class="btn btn-secondary text-white btn-lg">Browse Our Featured Properties</a>
   </section>
 
   <!-- Team -->
   <section id="team" class="py-5">
     <div class="container">
-      <h2 class="text-center">Our Team</h2>
+      <h2 class="text-center">Meet Our Expert Team</h2>
       <div class="row text-center">
         {% if realtors %}
           {% for realtor in realtors %}
@@ -80,7 +80,7 @@
               <img src="{{ realtor.photo.url }}" alt="" class="rounded-circle mb-3">
               <h4>{{ realtor.name }}</h4>
               <p class="text-success">
-                <i class="fas fa-award text-success mb-3"></i> Realtor</p>
+                <i class="fas fa-award text-success mb-3"></i> Licensed Realtor</p>
               <hr>
               <p>
                 <i class="fas fa-phone"></i> {{ realtor.phone }}</p>
@@ -90,7 +90,7 @@
           {% endfor %}
         {% else %}
           <div class="col-md-12">
-            <p>No Realtors Available</p>
+            <p>Our team information is being updated. Please contact us directly for assistance.</p>
           </div>
         {% endif %}       
       </div>

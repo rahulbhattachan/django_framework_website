@@ -14,7 +14,7 @@
             <div class="form-row">
               <div class="col-md-4 mb-3">
                 <label class="sr-only">Keywords</label>
-                <input type="text" name="keywords" class="form-control" placeholder="Keyword (Pool, Garage, etc)" value="{{ values.keywords }}">
+                <input type="text" name="keywords" class="form-control" placeholder="Keywords (Pool, Garage, etc)" value="{{ values.keywords }}">
               </div>
 
               <div class="col-md-4 mb-3">
@@ -24,7 +24,6 @@
 
               <div class="col-md-4 mb-3">
                 <label class="sr-only">State</label>
-              
                 <input type="text" name="State" class="form-control" placeholder="State" value="{{ values.State }}">
               </div>
             </div>
@@ -47,7 +46,7 @@
                 </select>
               </div>
             </div>
-            <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
+            <button class="btn btn-secondary btn-block mt-4" type="submit">Search Properties</button>
           </form>
         </div>
       </div>
@@ -77,6 +76,10 @@
     <div class="container">
       <div class="row">
         {% if listings %}
+          <div class="col-md-12 mb-4">
+            <h3>Search Results ({{ listings|length }} propert{{ listings|length|pluralize:"y,ies" }} found)</h3>
+            <hr>
+          </div>
           {% for listing in listings %}
           <div class="col-md-6 col-lg-4 mb-4">
               <div class="card listing-preview">
@@ -115,14 +118,19 @@
                       <i class="fas fa-clock"></i> {{ listing.list_date | timesince }}</div>
                   </div>
                   <hr>
-                  <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
+                  <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">View Details</a>
                 </div>
               </div>
             </div>
           {% endfor %}
         {% else %}
           <div class="col-md-12">
-            <p>No Listings Available</p>
+            <div class="text-center">
+              <h3>No Properties Match Your Search</h3>
+              <p class="lead">Try adjusting your search criteria or browse all our available properties.</p>
+              <a href="{% url 'listings' %}" class="btn btn-primary mr-3">View All Properties</a>
+              <a href="{% url 'index' %}" class="btn btn-secondary">New Search</a>
+            </div>
           </div>
         {% endif %}
       </div>
